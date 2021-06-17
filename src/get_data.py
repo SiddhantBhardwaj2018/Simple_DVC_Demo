@@ -14,8 +14,9 @@ def read_params(config_path):
 def get_data(config_path):
     config = read_params(config_path)
     data_path = config['data_source']["s3_source"]
-    optimal_path = "\\".join(os.getcwd().split("\\")[:-1])
-    df = pd.read_csv(optimal_path + "\\" + data_path,sep = ",", encoding = "utf-8")
+    optimal_path = "\\".join(os.getcwd().split("\\"))
+    optimal_path = optimal_path + "\\" + '\\'.join(data_path.split("/"))
+    df = pd.read_csv(optimal_path,sep = ",", encoding = "utf-8")
     return df
 
 if __name__ == "__main__":
