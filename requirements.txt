@@ -4,3 +4,4 @@ dvc[gdrive]
 pandas
 pytest
 tox
+flake8
